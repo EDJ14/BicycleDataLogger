@@ -12,7 +12,7 @@ print("Read the A/D")
 print("Ctrl C to stop")
 
 def talker():
-    pub = rospy.Publisher('steerangle', UInt32, queue_size=10)
+    pub = rospy.Publisher('steerangle', UInt32, queue_size=50)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(5)
     while not rospy.is_shutdown():
