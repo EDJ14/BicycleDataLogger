@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP) #Button to GPIO23
 
 def talker():
-    pub = rospy.Publisher('button', Bool, queue_size=10)
+    pub = rospy.Publisher('button', Bool, queue_size=50)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(5)
     while not rospy.is_shutdown():
