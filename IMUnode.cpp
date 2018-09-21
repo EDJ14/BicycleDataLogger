@@ -90,12 +90,7 @@ int main(int argc, char **argv)
 
             imu_msg.header.stamp = ros::Time::now();
             imu_msg.header.frame_id = frame_id;
-
-            imu_msg.orientation.x = imu_data.fusionQPose.x(); 
-            imu_msg.orientation.y = imu_data.fusionQPose.y(); 
-            imu_msg.orientation.z = imu_data.fusionQPose.z(); 
-            imu_msg.orientation.w = imu_data.fusionQPose.scalar(); 
-
+ 
             imu_msg.angular_velocity.x = imu_data.gyro.x();
             imu_msg.angular_velocity.y = imu_data.gyro.y();
             imu_msg.angular_velocity.z = imu_data.gyro.z();
@@ -105,7 +100,6 @@ int main(int argc, char **argv)
             imu_msg.linear_acceleration.z = imu_data.accel.z() * G_TO_MPSS;
 
             imu_pub.publish(imu_msg);
-	    ros::Duration(3).sleep();	
         }
         ros::spinOnce();
         ros::Duration(imu->IMUGetPollInterval() / 1000.0).sleep();
