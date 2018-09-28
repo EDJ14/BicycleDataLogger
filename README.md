@@ -14,10 +14,12 @@ http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry
 
 Add the following two lines to the .bashrc file:
 
+```bash
 source /opt/ros/kinetic/setup.bash
-
+```
+```bash
 source /home/pi/ros_catkin_ws/devel/setup.bash
-
+```
 
 
 Once ROS is installed, the following ROS packages must be downloaded:
