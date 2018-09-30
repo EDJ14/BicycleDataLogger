@@ -30,7 +30,13 @@ https://github.com/richardstechnotes/RTIMULib2/tree/master/RTHost (IMU)
 
 https://github.com/romainreignier/rtimulib_ros (IMU)
 
-To download and initialize a ROS package, navigate into the /home/pi/ros_catkin_ws/src/ folder and clone the github repository. Once this is done, cd into the /home/pi/ros_catkin_ws folder and run the command catkin_make from the terminal.
+To download and initialize a ROS package, navigate into the /home/pi/ros_catkin_ws/src/ folder and clone the github repository:
+
+```bash
+git clone htt[s:/...
+```
+
+Once this is done, cd into the /home/pi/ros_catkin_ws folder and run the command catkin_make from the terminal.
 
 The packages for the steering angle and calibration button must be made manually. To do this, again navigate into the 
 /home/pi/ros_catkin_ws/src folder. Next, run the command "catkin_create_pkg potread std_msgs rospy" to create a package called "potread".
@@ -42,4 +48,5 @@ the potentiometer:
 https://github.com/adafruit/Adafruit_Python_ADS1x15
 
 Enable i2c on the Pi by going to Preferences -> Raspberry Pi Configuration -> Interfaces
+
 In the /etc/modules file, make sure the lines i2c-dev and i2c-bcm2708 are uncommented
