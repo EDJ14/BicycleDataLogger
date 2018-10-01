@@ -37,14 +37,6 @@ To download and initialize a ROS package, navigate into the /home/pi/ros_catkin_
 cd ~/ros_catkin_ws/src
 git clone https://github.com/RTIMULib/RTIMULib2/tree/3d62821fef0f2252c39c14321a68d8cf3a63b9ae
 ```
-
-Once this is downloaded, run:
-
-```bash
-cd ~/ros_catkin_ws
-catkin_make
-```
-
 The packages for the steering angle and calibration button must be made manually. To do this, again navigate into the 
 /home/pi/ros_catkin_ws/src folder. Next, run the following command to create a package called "potread":
 ```bash
@@ -54,9 +46,11 @@ and
 ```bash
 catkin_create_pkg pushbutton std_msgs rospy
 ```
-to make the calibration button package. Navigate back into the /home/pi/ros_catkin_ws
-workspace and run catkin_make.
-
+to make the calibration button package. Once all the packages are downloaded or manually created, execute the following:
+```bash
+cd ~/ros_catkin_ws
+catkin_make
+```
 Follow the instructions in the link below to install software for use with the Adafruit ADS1015 analog-to-digital converter, which reads
 the potentiometer:
 https://github.com/adafruit/Adafruit_Python_ADS1x15
