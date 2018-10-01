@@ -3,7 +3,7 @@
 This is the repository for the 2018 UC Davis mechanical engineering senior design project to build a Bicyle Data Logger utilizing ROS on a 
 Raspberry Pi. The repository contains all necessary files and the instructions for their use, as well as instructions for the configuration
 of the Raspberry Pi. Once the Pi is set up and the proper hardware connections are made, the Pi will be activated and shut
-down by a button that also launches/terminates the ROS processes to process and collect data from an IMU, GPS, potentiometer, and 
+down by a button that also launches/terminates the ROS nodes that collect and process data from an IMU, GPS, potentiometer, and 
 calibration button.
 
 # Software
@@ -24,23 +24,37 @@ source /home/pi/ros_catkin_ws/devel/setup.bash
 
 Once ROS is installed, the following ROS packages must be downloaded:
 
-http://wiki.ros.org/nmea_navsat_driver (GPS)
+https://github.com/ros-drivers/nmea_navsat_driver/tree/c457319ecbb4ccd97c559a801d552fdc486b927c (GPS)
 
-https://github.com/richardstechnotes/RTIMULib2/tree/master/RTHost (IMU)
+https://github.com/RTIMULib/RTIMULib2/tree/3d62821fef0f2252c39c14321a68d8cf3a63b9ae (IMU)
 
-https://github.com/romainreignier/rtimulib_ros (IMU)
+https://github.com/romainreignier/rtimulib_ros/tree/325a3893fa65abd99bd4bbc6e604a18470854ad2 (IMU)
+
 
 To download and initialize a ROS package, navigate into the /home/pi/ros_catkin_ws/src/ folder and clone the github repository:
 
 ```bash
-git clone htt[s:/...
+cd ~/ros_catkin_ws/src
+git clone https://github.com/RTIMULib/RTIMULib2/tree/3d62821fef0f2252c39c14321a68d8cf3a63b9ae
 ```
 
-Once this is done, cd into the /home/pi/ros_catkin_ws folder and run the command catkin_make from the terminal.
+Once this is downloaded, run:
+
+```bash
+cd ~/ros_catkin_ws
+catkin_make
+```
 
 The packages for the steering angle and calibration button must be made manually. To do this, again navigate into the 
-/home/pi/ros_catkin_ws/src folder. Next, run the command "catkin_create_pkg potread std_msgs rospy" to create a package called "potread".
-To make the calibration button package, run "catkin_create_pkg pushbutton std_msgs rospy". Navigate back into the /home/pi/ros_catkin_ws
+/home/pi/ros_catkin_ws/src folder. Next, run the following command to create a package called "potread":
+```bash
+catkin_create_pkg potread std_msgs rospy
+```
+and
+```bash
+catkin_create_pkg pushbutton std_msgs rospy
+```
+to make the calibration button package. Navigate back into the /home/pi/ros_catkin_ws
 workspace and run catkin_make.
 
 Follow the instructions in the link below to install software for use with the Adafruit ADS1015 analog-to-digital converter, which reads
