@@ -36,10 +36,12 @@ To download and initialize a ROS package, navigate into the /home/pi/ros_catkin_
 ```bash
 cd ~/ros_catkin_ws/src
 git clone https://github.com/RTIMULib/RTIMULib2/tree/3d62821fef0f2252c39c14321a68d8cf3a63b9ae
+git clone https://github.com/RTIMULib/RTIMULib2/tree/3d62821fef0f2252c39c14321a68d8cf3a63b9ae
+git clone https://github.com/romainreignier/rtimulib_ros/tree/325a3893fa65abd99bd4bbc6e604a18470854ad2 
 ```
-The packages for the steering angle and calibration button must be made manually. To do this, again navigate into the 
-/home/pi/ros_catkin_ws/src folder. Next, run the following command to create a package called "potread":
+The packages for the steering angle and calibration button must be made manually. To do this, run the following commands to create a package called "potread":
 ```bash
+cd ~/ros_catkin_ws/src
 catkin_create_pkg potread std_msgs rospy
 ```
 and
@@ -51,10 +53,25 @@ to make the calibration button package. Once all the packages are downloaded or 
 cd ~/ros_catkin_ws
 catkin_make
 ```
-Follow the instructions in the link below to install software for use with the Adafruit ADS1015 analog-to-digital converter, which reads
+Run the following commands to install software for use with the Adafruit ADS1015 analog-to-digital converter, which reads
 the potentiometer:
-https://github.com/adafruit/Adafruit_Python_ADS1x15
+```bash
+sudo apt-get install git build-essential python-dev
+cd ~
+git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
+cd Adafruit_Python_ADS1x15
+sudo python setup.py install
+```
 
+# Raspberry Pi Configuration
 Enable i2c on the Pi by going to Preferences -> Raspberry Pi Configuration -> Interfaces
 
 In the /etc/modules file, make sure the lines i2c-dev and i2c-bcm2708 are uncommented
+
+To configure the GPIO serial port used by the GPS, add the line "enable_uart=1" to the bottom of the /boot/config.txt file, then run the
+following:
+```bash
+sudo systemctl stop serial-getty@ttyAMA0.service
+sudo systemctl disable serial-getty@ttyAMA0.service
+```
+Next, remove the line console=serial0,115200 from the /boot/cmdline.txt file.
