@@ -63,6 +63,22 @@ cd Adafruit_Python_ADS1x15
 sudo python setup.py install
 ```
 
+Copy the adafruitros.py and potreadsmbus.py files from this repository into the /home/pi/ros_catkin_ws/src/potread/scripts folder. You
+may need to first create the scripts folder. Also in /home/pi/ros_catkin_ws/src/potread/ create a folder called launch, and copy the allnodes.launch file from this repository into the folder.
+
+Copy the buttoncalibration.py file in this repository into the /home/pi/ros_catkin_ws/src/pushbutton/scripts folder.
+
+In the /home/pi/ros_catkin_ws/src/nmea_navsat_driver/scripts folder, replace the nmea_serial_driver, nmea_topic_driver, and 
+nmea_topic_serial_reader files with the ones in this repository.
+
+
+Next, copy the listen-for-shutdown.py file into the /usr/local/bin directory. Then run the following to make it executable:
+```bash
+cd /usr/local/bin
+sudo chmod +x listen-for-shutdown.py
+```
+
+
 # Raspberry Pi Configuration
 Enable i2c on the Pi by going to Preferences -> Raspberry Pi Configuration -> Interfaces
 
