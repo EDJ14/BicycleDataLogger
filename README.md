@@ -71,6 +71,8 @@ Copy the buttoncalibration.py file in this repository into the /home/pi/ros_catk
 In the /home/pi/ros_catkin_ws/src/nmea_navsat_driver/scripts folder, replace the nmea_serial_driver, nmea_topic_driver, and 
 nmea_topic_serial_reader files with the ones in this repository.
 
+In the /home/pi/ros_catkin_ws/src/rtimulib_ros/config folder, change line 35 of RTIMULib.ini to I2CBus=1
+
 
 Next, copy the listen-for-shutdown.py file into the /usr/local/bin directory. Then run the following to make it executable:
 ```bash
