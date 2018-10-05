@@ -31,7 +31,7 @@ https://github.com/RTIMULib/RTIMULib2/tree/3d62821fef0f2252c39c14321a68d8cf3a63b
 https://github.com/romainreignier/rtimulib_ros/tree/325a3893fa65abd99bd4bbc6e604a18470854ad2 (IMU)
 
 
-To download and initialize a ROS package, navigate into the /home/pi/ros_catkin_ws/src/ folder and clone the github repository:
+To download and initialize a ROS package, first navigate into the /home/pi/ros_catkin_ws/src/ folder and clone the github repository:
 
 ```bash
 cd ~/ros_catkin_ws/src
@@ -63,8 +63,7 @@ cd Adafruit_Python_ADS1x15
 sudo python setup.py install
 ```
 
-Copy the adafruitros.py and potreadsmbus.py files from this repository into the /home/pi/ros_catkin_ws/src/potread/scripts folder. You
-may need to first create the scripts folder. Also in /home/pi/ros_catkin_ws/src/potread/ create a folder called launch, and copy the allnodes.launch file from this repository into the folder.
+Copy the adafruitros.py and potreadsmbus.py files from this repository into the /home/pi/ros_catkin_ws/src/potread/scripts folder. Also in /home/pi/ros_catkin_ws/src/potread/ create a folder called launch, and copy the allnodes.launch file from this repository into the folder.
 
 Copy the buttoncalibration.py file in this repository into the /home/pi/ros_catkin_ws/src/pushbutton/scripts folder.
 
@@ -78,6 +77,12 @@ Next, copy the listen-for-shutdown.py file into the /usr/local/bin directory. Th
 ```bash
 cd /usr/local/bin
 sudo chmod +x listen-for-shutdown.py
+```
+In the /etc/init.d directory, copy both the loggerbuttontwo.sh and listen-for-shutdown.sh files, and run the following to make the sytem respond to the button and create/terminate the rosbag to collect data:
+```bash
+cd /etc/init.d
+sudo chmod +x loggerbuttontwo.sh && sudo update-rc.d loggerbuttontwo.sh defaults
+sudo chmod +x listen-for-shutdown.sh && sudo update-rc.d listen-for-shutdown.sh defaults
 ```
 
 
