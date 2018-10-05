@@ -18,5 +18,6 @@
 
     <node pkg="rosbag" type="record" name="record_topics" args="-o /home/pi/ /button /fix /rtimulib_node/imu /steerangle /vel" />
 
+    <node pkg="rosbag" type="record" name="record_imu" args="-o /home/pi/ /rtimulib_node/imu" />
 
 </launch>
