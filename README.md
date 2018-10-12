@@ -106,6 +106,7 @@ sudo python setup.py install
 
 The next step is to put the files in this repository into the correct locations. First, clone the repository:
 ```bash
+cd ~
 git clone https://github.com/mechmotum/BicycleDataLogger.git
 ```
 
