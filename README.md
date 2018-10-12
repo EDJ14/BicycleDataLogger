@@ -125,16 +125,23 @@ rm /home/pi/BicycleDataLogger/nmea_serial_driver /home/pi/BicycleDataLogger/nmea
 cp /home/pi/BicycleDataLogger/nmea_serial_driver /home/pi/BicycleDataLogger/nmea_topic_drver /home/pi/BicycleDataLogger/nmea_topic_serial_reader /home/pi/ros_catkin_ws/src/nmea_navsat_driver/scripts
 ```
 
-In the /home/pi/ros_catkin_ws/src/rtimulib_ros/config folder, change line 35 of RTIMULib.ini to I2CBus=1
+```bash
+rm /home/pi/ros_catkin_ws/src/rtimulib_ros/config/RTIMULib.ini
+cp /home/pi/BicycleDataLogger/RTIMULib.ini /home/pi/ros_catkin_ws/src/rtimulib_ros/config/
+```
 
-
-Next, copy the listen-for-shutdown.py file into the /usr/local/bin directory. Then run the following to make it executable:
+Next, copy the listen-for-shutdown.py file into the /usr/local/bin directory.
+```bash
+cp /home/pi/BicycleDataLogger/listen-for-shutdown.py /usr/local/bin/
+```
+Then run the following to make it executable:
 ```bash
 cd /usr/local/bin
 sudo chmod +x listen-for-shutdown.py
 ```
 In the /etc/init.d directory, copy both the loggerbuttontwo.sh and listen-for-shutdown.sh files, and run the following to make the sytem respond to the button and create/terminate the rosbag to collect data:
 ```bash
+cp /home/pi/BicycleDataLogger/loggerbuttontwo.sh /home/pi/BicycleDataLogger/listen-for-shutdown.sh /etc/init.d/
 cd /etc/init.d
 sudo chmod +x loggerbuttontwo.sh && sudo update-rc.d loggerbuttontwo.sh defaults
 sudo chmod +x listen-for-shutdown.sh && sudo update-rc.d listen-for-shutdown.sh defaults
