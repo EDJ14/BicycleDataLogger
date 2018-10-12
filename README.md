@@ -111,6 +111,8 @@ Copy the adafruitros.py and potreadsmbus.py files from this repository into the 
 ```bash
 cp /home/pi/BicycleDataLogger/adafruitros.py /home/pi/ros_catkin_ws/src/potread/scripts
 cp /home/pi/BicycleDataLogger/potreadsmbus.py /home/pi/ros_catkin_ws/src/potread/scripts
+mkdir /home/pi/ros_catkin_ws/src/potread/launch
+cp /home/pi/BicycleDataLogger/allnodes.launch /home/pi/ros_catkin_ws/src/potread/launch/
 ```
 
 Copy the buttoncalibration.py file in this repository into the /home/pi/ros_catkin_ws/src/pushbutton/scripts folder.
