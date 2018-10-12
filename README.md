@@ -102,6 +102,8 @@ cd Adafruit_Python_ADS1x15
 sudo python setup.py install
 ```
 
+# Using this repository
+
 The next step is to put the files in this repository into the correct locations. First, clone the repository:
 ```bash
 git clone https://github.com/mechmotum/BicycleDataLogger.git
@@ -109,22 +111,23 @@ git clone https://github.com/mechmotum/BicycleDataLogger.git
 
 Copy the adafruitros.py and potreadsmbus.py files from this repository into the /home/pi/ros_catkin_ws/src/potread/scripts folder. Also in /home/pi/ros_catkin_ws/src/potread/ create a folder called launch, and copy the allnodes.launch file from this repository into the folder:
 ```bash
-cp /home/pi/BicycleDataLogger/adafruitros.py /home/pi/ros_catkin_ws/src/potread/scripts
-cp /home/pi/BicycleDataLogger/potreadsmbus.py /home/pi/ros_catkin_ws/src/potread/scripts
-mkdir /home/pi/ros_catkin_ws/src/potread/launch
+cp /home/pi/BicycleDataLogger/adafruitros.py /home/pi/ros_catkin_ws/src/potread/scripts/
+cp /home/pi/BicycleDataLogger/potreadsmbus.py /home/pi/ros_catkin_ws/src/potread/scripts/
+mkdir /home/pi/ros_catkin_ws/src/potread/launch/
 cp /home/pi/BicycleDataLogger/allnodes.launch /home/pi/ros_catkin_ws/src/potread/launch/
 ```
 
 Copy the buttoncalibration.py file in this repository into the /home/pi/ros_catkin_ws/src/pushbutton/scripts folder.
 ```bash
-cp /home/pi/BicycleDataLogger/buttoncalibration.py /home/pi/ros_catkin_ws/src/pushbutton/scripts
+cp /home/pi/BicycleDataLogger/buttoncalibration.py /home/pi/ros_catkin_ws/src/pushbutton/scripts/
 ```
 
 In the /home/pi/ros_catkin_ws/src/nmea_navsat_driver/scripts folder, replace the nmea_serial_driver, nmea_topic_driver, and 
 nmea_topic_serial_reader files with the ones in this repository.
 ```bash
 rm /home/pi/BicycleDataLogger/nmea_serial_driver /home/pi/BicycleDataLogger/nmea_topic_driver /home/pi/BicycleDataLogger/nmea_topic_serial_reader
-cp /home/pi/BicycleDataLogger/nmea_serial_driver /home/pi/BicycleDataLogger/nmea_topic_drver /home/pi/BicycleDataLogger/nmea_topic_serial_reader /home/pi/ros_catkin_ws/src/nmea_navsat_driver/scripts
+
+cp /home/pi/BicycleDataLogger/nmea_serial_driver /home/pi/BicycleDataLogger/nmea_topic_drver /home/pi/BicycleDataLogger/nmea_topic_serial_reader /home/pi/ros_catkin_ws/src/nmea_navsat_driver/scripts/
 ```
 
 ```bash
